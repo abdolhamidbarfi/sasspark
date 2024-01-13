@@ -17,19 +17,19 @@ const Navigation: React.FunctionComponent<INavigationProps> = ({ items }) => {
         setShowMenu(!showMenu)
     }
     return (
-        <header className='lg:h-24 max-lg:h-14 ' >
+        <header className='lg:h-24 max-lg:h-14 shadow' >
          <div onClick={handleOpenMenu} className={`bg-gray-600 absolute top-0 bottom-0 right-0 left-0 opacity-50 hidden ${showMenu && "max-sm:!block"}`}></div>
-            <div className='container flex flex-row-reverse justify-between items-center h-full mx-auto shadow relative' >
+            <div className='container flex flex-row-reverse justify-between items-center h-full mx-auto  relative' >
                 {/* Logo Section */}
                 <div className='px-5'>
                     <Link href="#">
                         <Logo />
                     </Link>
                 </div>
-                <Bars4Icon className='hidden max-sm:block h-full p-2 cursor-pointer opacity-55' onClick={handleOpenMenu} />
+                <Bars4Icon className='hidden max-sm:block h-full p-2 cursor-pointer opacity-80' onClick={handleOpenMenu} />
                 {/* Nav_Menu Section */}
                 <nav className={`${showMenu ? "max-sm:right-0" : "max-sm:!-right-52"}
-                    max-sm:absolute max-sm:bg-white max-sm:top-0 max-sm:right-0 transition-all duration-400 max-sm:shadow max-sm:pt-14 max-sm:w-52 max-sm:h-lvh`
+                    max-sm:absolute max-sm:bg-white max-sm:top-0 max-sm:right-0 transition-all duration-300 max-sm:shadow max-sm:pt-14 max-sm:w-52 max-sm:h-lvh`
                 }>
                     <ul className='flex max-sm:flex-col items-center justify-center '>
                         {items.map((item: any, index) => (
