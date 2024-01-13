@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import * as React from 'react';
 import Logo from '../logo';
-import { Bars4Icon
+import { Bars3Icon
  } from '@heroicons/react/16/solid';
 import { GroupField } from '@prismicio/client';
 import { NavItemsDocumentDataItemItem, Simplify } from '../../../prismicio-types';
@@ -10,12 +10,16 @@ import { NavItemsDocumentDataItemItem, Simplify } from '../../../prismicio-types
 interface INavigationProps {
     items: GroupField<Simplify<NavItemsDocumentDataItemItem>>
 }
+
+// this FC get a list of menu and return a navigation with menu
 const Navigation: React.FunctionComponent<INavigationProps> = ({ items }) => {
 
     const [showMenu, setShowMenu] = React.useState(false)
+
     const handleOpenMenu = () => {
         setShowMenu(!showMenu)
     }
+
     return (
         <header className='lg:h-24 max-lg:h-14 shadow' >
          <div onClick={handleOpenMenu} className={`bg-gray-600 absolute top-0 bottom-0 right-0 left-0 opacity-50 hidden ${showMenu && "max-sm:!block"}`}></div>
@@ -26,8 +30,9 @@ const Navigation: React.FunctionComponent<INavigationProps> = ({ items }) => {
                         <Logo />
                     </Link>
                 </div>
-                <Bars4Icon className='hidden max-sm:block h-full p-2 cursor-pointer opacity-80' onClick={handleOpenMenu} />
-                {/* Nav_Menu Section */}
+                {/* menu toggle button section */}
+                <Bars3Icon className='hidden max-sm:block h-full p-2 cursor-pointer opacity-80' onClick={handleOpenMenu} />
+                {/* Nav_Menu list Section */}
                 <nav className={`${showMenu ? "max-sm:right-0" : "max-sm:!-right-52"}
                     max-sm:absolute max-sm:bg-white max-sm:top-0 max-sm:right-0 transition-all duration-300 max-sm:shadow max-sm:pt-14 max-sm:w-52 max-sm:h-lvh`
                 }>
