@@ -1,0 +1,34 @@
+{
+  "id": "nav_items",
+  "label": "Nav Items",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "item": {
+        "type": "Group",
+        "config": {
+          "label": "Items",
+          "fields": {
+            "item": {
+              "type": "Text",
+              "config": {
+                "label": "Item",
+                "placeholder": ""
+              }
+            },
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

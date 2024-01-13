@@ -1,0 +1,18 @@
+{
+  "id": "single_data",
+  "label": "Single Data",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "logo": {
+        "type": "Embed",
+        "config": {
+          "label": "Logo",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}
