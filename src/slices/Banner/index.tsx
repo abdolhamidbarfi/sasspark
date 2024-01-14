@@ -1,3 +1,4 @@
+import BrandsList from "@/components/brandsList/BrandsList";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
@@ -33,6 +34,7 @@ const Banner = ({ slice }: BannerProps): JSX.Element => {
                     <PrismicNextLink className="max-sm:!w-full text-center px-10 py-5 bg-gray-800 text-white rounded-md font-medium inline-block transition-all duration-1000" field={slice.primary.button}>بیایید صحبت کنیم  ...</PrismicNextLink>
                 </div>
             </div>
+            <BrandsList />
         </section>
     );
 };

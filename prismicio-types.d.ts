@@ -138,6 +138,63 @@ export type NavItemsDocument<Lang extends string = string> =
   >;
 
 /**
+ * Item in *Popular Brands → Brand*
+ */
+export interface PopularBrandsDocumentDataBrandItem {
+  /**
+   * Title field in *Popular Brands → Brand*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: popular_brands.brand[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Logo field in *Popular Brands → Brand*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: popular_brands.brand[].logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+}
+
+/**
+ * Content for Popular Brands documents
+ */
+interface PopularBrandsDocumentData {
+  /**
+   * Brand field in *Popular Brands*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: popular_brands.brand[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  brand: prismic.GroupField<Simplify<PopularBrandsDocumentDataBrandItem>>;
+}
+
+/**
+ * Popular Brands document from Prismic
+ *
+ * - **API ID**: `popular_brands`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type PopularBrandsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<PopularBrandsDocumentData>,
+    "popular_brands",
+    Lang
+  >;
+
+/**
  * Content for Single Data documents
  */
 interface SingleDataDocumentData {
@@ -172,6 +229,7 @@ export type SingleDataDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | HamepageDocument
   | NavItemsDocument
+  | PopularBrandsDocument
   | SingleDataDocument;
 
 /**
@@ -272,6 +330,9 @@ declare module "@prismicio/client" {
       NavItemsDocument,
       NavItemsDocumentData,
       NavItemsDocumentDataItemItem,
+      PopularBrandsDocument,
+      PopularBrandsDocumentData,
+      PopularBrandsDocumentDataBrandItem,
       SingleDataDocument,
       SingleDataDocumentData,
       AllDocumentTypes,
