@@ -189,6 +189,16 @@ export interface BannerSliceDefaultPrimary {
   image: prismic.ImageField<never>;
 
   /**
+   * Talk About field in *Banner → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.primary.talk_about
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  talk_about: prismic.KeyTextField;
+
+  /**
    * Title field in *Banner → Primary*
    *
    * - **Field Type**: Title

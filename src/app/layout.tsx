@@ -1,8 +1,6 @@
 import type { Metadata } from 'next'
 import {  Vazirmatn } from 'next/font/google'
 import './globals.css'
-import { PrismicPreview } from '@prismicio/next'
-import { repositoryName } from '@/prismicio'
 
 const vazirmatn = Vazirmatn({ subsets: ['latin'] , variable: "--font-vazirmatn", display: "swap"})
 
@@ -20,7 +18,7 @@ export default function RootLayout({
     <html lang="en" dir='rtl'>
       <body className={vazirmatn.className}>
         {children}
-        <PrismicPreview repositoryName={repositoryName} />
+
         </body>
     </html>
   )

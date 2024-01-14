@@ -4,7 +4,6 @@
 		"variation": "default",
 		"primary": {
 			"image": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
@@ -22,6 +21,9 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
 			"title": {
@@ -30,8 +32,10 @@
 					{
 						"type": "heading2",
 						"content": {
-							"text": "Scale"
-						}
+							"text": "الگوی مورد نیاز استارت آپ شما",
+							"spans": []
+						},
+						"direction": "ltr"
 					}
 				]
 			},
@@ -41,8 +45,10 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Aute ex ut pariatur adipisicing quis pariatur fugiat commodo cillum do officia consequat consequat adipisicing. Cillum ut sunt pariatur anim magna. Nulla ad incididunt occaecat qui incididunt sint Lorem est voluptate."
-						}
+							"text": "ما همه ابزارها و منابع را برای کمک به شما برای شروع سریع و بدون هیچ کارمزد پنهان یا هزینه های غیرمنتظره تراکنش فراهم می کنیم. ساده است.",
+							"spans": []
+						},
+						"direction": "ltr"
 					}
 				]
 			},
@@ -52,6 +58,11 @@
 					"__TYPE__": "ExternalLink",
 					"url": "https://slicemachine.dev"
 				}
+			},
+			"talk_about": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "در مورد رشد آینده صحبت کنید"
 			}
 		},
 		"items": []

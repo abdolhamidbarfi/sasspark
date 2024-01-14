@@ -20,6 +20,13 @@
             "thumbnails": []
           }
         },
+        "talk_about": {
+          "type": "Text",
+          "config": {
+            "label": "Talk About",
+            "placeholder": ""
+          }
+        },
         "title": {
           "type": "StructuredText",
           "config": {
