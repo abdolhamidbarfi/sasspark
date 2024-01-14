@@ -21,8 +21,8 @@ const Navigation: React.FunctionComponent<INavigationProps> = ({ items }) => {
     }
 
     return (
-        <header className='lg:h-24 max-lg:h-14 shadow' >
-         <div onClick={handleOpenMenu} className={`bg-gray-600 absolute top-0 bottom-0 right-0 left-0 opacity-50 hidden ${showMenu && "max-sm:!block"}`}></div>
+        <header className='lg:h-24 max-lg:h-14 shadow transition-all duration-1000' >
+         <div onClick={handleOpenMenu} className={`transition-all duration-1000 bg-gray-600 absolute top-0 bottom-0 right-0 left-0 opacity-50 hidden ${showMenu && "max-sm:!block"}`}></div>
             <div className='container flex flex-row-reverse justify-between items-center h-full mx-auto  relative' >
                 {/* Logo Section */}
                 <div className='px-5'>

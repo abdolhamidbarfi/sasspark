@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HamepageDocumentDataSlicesSlice = BannerSlice;
+type HamepageDocumentDataSlicesSlice = OptionSectionSlice | BannerSlice;
 
 /**
  * Content for HamePage documents
@@ -301,9 +301,143 @@ export type BannerSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Banner → Primary*
+ */
+export interface BannerSliceReversePrimary {
+  /**
+   * Image field in *Banner → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Banner → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Description field in *Banner → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Link field in *Banner → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link: prismic.KeyTextField;
+
+  /**
+   * Button field in *Banner → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.primary.button
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button: prismic.LinkField;
+}
+
+/**
+ * Reverse variation for Banner Slice
+ *
+ * - **API ID**: `reverse`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BannerSliceReverse = prismic.SharedSliceVariation<
+  "reverse",
+  Simplify<BannerSliceReversePrimary>,
+  never
+>;
+
+/**
+ * Primary content in *Banner → Primary*
+ */
+export interface BannerSliceOptionListPrimary {
+  /**
+   * Image field in *Banner → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *Banner → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * Description field in *Banner → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *Banner → Items*
+ */
+export interface BannerSliceOptionListItem {
+  /**
+   * Option field in *Banner → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.items[].option
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  option: prismic.KeyTextField;
+}
+
+/**
+ * Option List variation for Banner Slice
+ *
+ * - **API ID**: `optionList`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BannerSliceOptionList = prismic.SharedSliceVariation<
+  "optionList",
+  Simplify<BannerSliceOptionListPrimary>,
+  Simplify<BannerSliceOptionListItem>
+>;
+
+/**
  * Slice variation for *Banner*
  */
-type BannerSliceVariation = BannerSliceDefault;
+type BannerSliceVariation =
+  | BannerSliceDefault
+  | BannerSliceReverse
+  | BannerSliceOptionList;
 
 /**
  * Banner Shared Slice
@@ -313,6 +447,76 @@ type BannerSliceVariation = BannerSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type BannerSlice = prismic.SharedSlice<"banner", BannerSliceVariation>;
+
+/**
+ * Primary content in *OptionSection → Primary*
+ */
+export interface OptionSectionSliceDefaultPrimary {
+  /**
+   * Title field in *OptionSection → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: option_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+}
+
+/**
+ * Primary content in *OptionSection → Items*
+ */
+export interface OptionSectionSliceDefaultItem {
+  /**
+   * Title field in *OptionSection → Items*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: option_section.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * description field in *OptionSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: option_section.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for OptionSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OptionSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<OptionSectionSliceDefaultPrimary>,
+  Simplify<OptionSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *OptionSection*
+ */
+type OptionSectionSliceVariation = OptionSectionSliceDefault;
+
+/**
+ * OptionSection Shared Slice
+ *
+ * - **API ID**: `option_section`
+ * - **Description**: OptionSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type OptionSectionSlice = prismic.SharedSlice<
+  "option_section",
+  OptionSectionSliceVariation
+>;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -338,8 +542,18 @@ declare module "@prismicio/client" {
       AllDocumentTypes,
       BannerSlice,
       BannerSliceDefaultPrimary,
+      BannerSliceReversePrimary,
+      BannerSliceOptionListPrimary,
+      BannerSliceOptionListItem,
       BannerSliceVariation,
       BannerSliceDefault,
+      BannerSliceReverse,
+      BannerSliceOptionList,
+      OptionSectionSlice,
+      OptionSectionSliceDefaultPrimary,
+      OptionSectionSliceDefaultItem,
+      OptionSectionSliceVariation,
+      OptionSectionSliceDefault,
     };
   }
 }
