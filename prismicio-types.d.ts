@@ -4,7 +4,45 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type HamepageDocumentDataSlicesSlice = OptionSectionSlice | BannerSlice;
+type FooterDocumentDataSlicesSlice = FooterSectionSlice;
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Slice Zone field in *Footer*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.slices[]
+   * - **Tab**: Business
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<FooterDocumentDataSlicesSlice>;
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterDocumentData>,
+    "footer",
+    Lang
+  >;
+
+type HamepageDocumentDataSlicesSlice =
+  | SearchBoxSlice
+  | DisClouserSlice
+  | OptionSectionSlice
+  | BannerSlice;
 
 /**
  * Content for HamePage documents
@@ -227,6 +265,7 @@ export type SingleDataDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | FooterDocument
   | HamepageDocument
   | NavItemsDocument
   | PopularBrandsDocument
@@ -449,6 +488,156 @@ type BannerSliceVariation =
 export type BannerSlice = prismic.SharedSlice<"banner", BannerSliceVariation>;
 
 /**
+ * Primary content in *DisClouser → Primary*
+ */
+export interface DisClouserSliceDefaultPrimary {
+  /**
+   * Title field in *DisClouser → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dis_clouser.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * description field in *DisClouser → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dis_clouser.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *DisClouser → Items*
+ */
+export interface DisClouserSliceDefaultItem {
+  /**
+   * title field in *DisClouser → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dis_clouser.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * description field in *DisClouser → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: dis_clouser.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for DisClouser Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DisClouserSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DisClouserSliceDefaultPrimary>,
+  Simplify<DisClouserSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *DisClouser*
+ */
+type DisClouserSliceVariation = DisClouserSliceDefault;
+
+/**
+ * DisClouser Shared Slice
+ *
+ * - **API ID**: `dis_clouser`
+ * - **Description**: DisClouser
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DisClouserSlice = prismic.SharedSlice<
+  "dis_clouser",
+  DisClouserSliceVariation
+>;
+
+/**
+ * Primary content in *FooterSection → Primary*
+ */
+export interface FooterSectionSliceDefaultPrimary {
+  /**
+   * Title field in *FooterSection → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_section.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+}
+
+/**
+ * Primary content in *FooterSection → Items*
+ */
+export interface FooterSectionSliceDefaultItem {
+  /**
+   * Link field in *FooterSection → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_section.items[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * item field in *FooterSection → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_section.items[].item
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  item: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for FooterSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FooterSectionSliceDefaultPrimary>,
+  Simplify<FooterSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *FooterSection*
+ */
+type FooterSectionSliceVariation = FooterSectionSliceDefault;
+
+/**
+ * FooterSection Shared Slice
+ *
+ * - **API ID**: `footer_section`
+ * - **Description**: FooterSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSectionSlice = prismic.SharedSlice<
+  "footer_section",
+  FooterSectionSliceVariation
+>;
+
+/**
  * Primary content in *OptionSection → Primary*
  */
 export interface OptionSectionSliceDefaultPrimary {
@@ -518,6 +707,61 @@ export type OptionSectionSlice = prismic.SharedSlice<
   OptionSectionSliceVariation
 >;
 
+/**
+ * Primary content in *SearchBox → Primary*
+ */
+export interface SearchBoxSliceDefaultPrimary {
+  /**
+   * Title field in *SearchBox → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: search_box.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+
+  /**
+   * description field in *SearchBox → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: search_box.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Default variation for SearchBox Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SearchBoxSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SearchBoxSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *SearchBox*
+ */
+type SearchBoxSliceVariation = SearchBoxSliceDefault;
+
+/**
+ * SearchBox Shared Slice
+ *
+ * - **API ID**: `search_box`
+ * - **Description**: SearchBox
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SearchBoxSlice = prismic.SharedSlice<
+  "search_box",
+  SearchBoxSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -528,6 +772,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      FooterDocument,
+      FooterDocumentData,
+      FooterDocumentDataSlicesSlice,
       HamepageDocument,
       HamepageDocumentData,
       HamepageDocumentDataSlicesSlice,
@@ -549,11 +796,25 @@ declare module "@prismicio/client" {
       BannerSliceDefault,
       BannerSliceReverse,
       BannerSliceOptionList,
+      DisClouserSlice,
+      DisClouserSliceDefaultPrimary,
+      DisClouserSliceDefaultItem,
+      DisClouserSliceVariation,
+      DisClouserSliceDefault,
+      FooterSectionSlice,
+      FooterSectionSliceDefaultPrimary,
+      FooterSectionSliceDefaultItem,
+      FooterSectionSliceVariation,
+      FooterSectionSliceDefault,
       OptionSectionSlice,
       OptionSectionSliceDefaultPrimary,
       OptionSectionSliceDefaultItem,
       OptionSectionSliceVariation,
       OptionSectionSliceDefault,
+      SearchBoxSlice,
+      SearchBoxSliceDefaultPrimary,
+      SearchBoxSliceVariation,
+      SearchBoxSliceDefault,
     };
   }
 }

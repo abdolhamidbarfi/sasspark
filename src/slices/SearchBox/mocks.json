@@ -1,0 +1,31 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Nature"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Sunt anim labore tempor eu consectetur Lorem minim cillum consectetur eu esse irure labore eiusmod exercitation. Nostrud incididunt reprehenderit aliqua nisi commodo reprehenderit."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

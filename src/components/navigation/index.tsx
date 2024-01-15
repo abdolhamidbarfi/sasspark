@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link';
 import * as React from 'react';
-import Logo from '../logo';
+import {DarkLogo} from '../logo';
 import { Bars3Icon
  } from '@heroicons/react/16/solid';
 import { GroupField } from '@prismicio/client';
@@ -27,7 +27,7 @@ const Navigation: React.FunctionComponent<INavigationProps> = ({ items }) => {
                 {/* Logo Section */}
                 <div className='px-5'>
                     <Link href="#">
-                        <Logo />
+                        <DarkLogo />
                     </Link>
                 </div>
                 {/* menu toggle button section */}

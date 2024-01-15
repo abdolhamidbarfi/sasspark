@@ -1,5 +1,5 @@
 
-import DisClouser from '@/components/Disclouser'
+import DisClouser from '@/components/MyDisClouser'
 import Navigation from '@/components/navigation'
 import { createClient } from '@/prismicio'
 import { components } from '@/slices'
@@ -14,9 +14,7 @@ export default async function Home() {
 
     return (
         <>
-            <Navigation items={listData.item} />
             <SliceZone slices={page.slices} components={components} />
-            <DisClouser />
         </>
     )
 }

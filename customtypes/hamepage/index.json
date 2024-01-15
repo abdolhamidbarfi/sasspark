@@ -18,6 +18,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "search_box": {
+              "type": "SharedSlice"
+            },
+            "dis_clouser": {
+              "type": "SharedSlice"
+            },
             "option_section": {
               "type": "SharedSlice"
             },

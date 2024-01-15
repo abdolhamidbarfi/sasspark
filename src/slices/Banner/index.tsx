@@ -1,4 +1,5 @@
 import BrandsList from "@/components/brandsList/BrandsList";
+import { buttonStyle } from "@/components/tools/Button";
 import { Content } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
@@ -98,7 +99,7 @@ const Banner = ({ slice }: BannerProps): JSX.Element => {
                                 <p className="text-lg lg:!text-xl font-normal leading-8 font-body text-slate-600 mb-5 md:mb-8 max-w-lg  transition-all duration-1000">{children}</p>
                             )
                         }} />
-                        <PrismicNextLink className="max-sm:!w-full text-center px-10 py-5 bg-gray-800 text-white rounded-md font-medium inline-block transition-all duration-1000" field={slice.primary.button}> {slice.primary.link}</PrismicNextLink>
+                        <PrismicNextLink className={buttonStyle} field={slice.primary.button}> {slice.primary.link}</PrismicNextLink>
                     </div>
                 </div>
             }
