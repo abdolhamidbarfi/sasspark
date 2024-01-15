@@ -1,6 +1,6 @@
 import { JSXFunctionSerializer, JSXMapSerializer } from "@prismicio/react"
 
-
+// this section use in slice sections
 const components: JSXMapSerializer | JSXFunctionSerializer | undefined = {
     heading2: ({ children }) => (
         <h2 className="lg:text-6xl max-lg:text-4xl max-md:text-4xl max-sm:text-3xl transition-all duration-1000 lg:!leading-[5rem] md:!leading-[3rem] max-md:!leading-[2rem] font-bold mb-5">{children}</h2>

@@ -1,5 +1,4 @@
-import { components } from '@/slices/Banner/typography';
-import { KeyTextField, LinkField, RichTextField } from '@prismicio/client';
+import { components } from '@/components/tools/typography';
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next';
 import { PrismicRichText } from '@prismicio/react';
 import * as React from 'react';
