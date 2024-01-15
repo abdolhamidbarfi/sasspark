@@ -1,8 +1,7 @@
-import MyDisClouser from "@/components/MyDisClouser";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import { components } from "../../components/tools/typography";
-import { DisClouserSliceDefaultItem, Simplify } from "../../../prismicio-types";
+import Disclouser from "@/components/Disclouser";
 
 /**
  * Props for `DisClouser`.
@@ -13,6 +12,14 @@ export type DisClouserProps = SliceComponentProps<Content.DisClouserSlice>;
  * Component for "DisClouser" Slices.
  */
 const DisClouser = ({ slice }: DisClouserProps): JSX.Element => {
+    const listOfDisclouser = [...slice.items]
+    const newListOfDisclouser = []
+
+    while (listOfDisclouser.length > 0) {
+        let spliceList = listOfDisclouser.splice(0, (slice.items.length/2))
+        newListOfDisclouser.push(spliceList)
+        spliceList = []
+    }
 
 
     return (
@@ -26,11 +33,13 @@ const DisClouser = ({ slice }: DisClouserProps): JSX.Element => {
             </div>
             <div className="grid max-md:grid-cols-1 md:grid-cols-2">
                 {
-                    slice.items.map(
-                        (item: Simplify<DisClouserSliceDefaultItem>) => {
-                            return <MyDisClouser title={item.title} description={item.description} />
-                        }
-                    )
+                    newListOfDisclouser.map((item => (
+                        <div>
+                            {
+                                item.map((item) => <Disclouser data={{title: item.title , description: item.description}} />)
+                            }
+                        </div>
+                    )))
                 }
             </div>
 

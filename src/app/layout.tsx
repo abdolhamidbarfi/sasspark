@@ -4,6 +4,7 @@ import './globals.css'
 import { createClient } from '@/prismicio'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/Footer'
+import Disclouser from '@/components/Disclouser'
 
 const vazirmatn = Vazirmatn({ subsets: ['latin'], variable: "--font-vazirmatn", display: "swap" })
 
@@ -25,7 +26,7 @@ export default async function RootLayout({
     return (
         <html lang="en" dir='rtl'>
             <body className={`${vazirmatn.className} bg-gray-50`}>
-                <Navigation items={navigationData.item} />ّ
+                <Navigation items={navigationData.item} />
                 {children}
                 <Footer listItem={footerData.slices}/>
             </body>

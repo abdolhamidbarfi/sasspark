@@ -18,7 +18,7 @@ const OptionSection = ({ slice }: OptionSectionProps): JSX.Element => {
             data-slice-type={slice.slice_type}
             data-slice-variation={slice.variation}
         >
-            <div className=" container mx-auto transition-all duration-1000 py-10">
+            <div className=" container mx-auto px-5 transition-all duration-1000 py-10">
                 <div className="text-center">
                     <PrismicRichText field={slice.primary.title} components={components} />
                 </div>
