@@ -39,6 +39,7 @@ export type FooterDocument<Lang extends string = string> =
   >;
 
 type HamepageDocumentDataSlicesSlice =
+  | BrandsListSlice
   | SearchBoxSlice
   | DisClouserSlice
   | OptionSectionSlice
@@ -498,6 +499,76 @@ type BannerSliceVariation =
 export type BannerSlice = prismic.SharedSlice<"banner", BannerSliceVariation>;
 
 /**
+ * Primary content in *BrandsList → Primary*
+ */
+export interface BrandsListSliceDefaultPrimary {
+  /**
+   * Title field in *BrandsList → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: brands_list.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *BrandsList → Items*
+ */
+export interface BrandsListSliceDefaultItem {
+  /**
+   * Title field in *BrandsList → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: brands_list.items[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Logo field in *BrandsList → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: brands_list.items[].logo
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for BrandsList Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BrandsListSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<BrandsListSliceDefaultPrimary>,
+  Simplify<BrandsListSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *BrandsList*
+ */
+type BrandsListSliceVariation = BrandsListSliceDefault;
+
+/**
+ * BrandsList Shared Slice
+ *
+ * - **API ID**: `brands_list`
+ * - **Description**: BrandsList
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type BrandsListSlice = prismic.SharedSlice<
+  "brands_list",
+  BrandsListSliceVariation
+>;
+
+/**
  * Primary content in *DisClouser → Primary*
  */
 export interface DisClouserSliceDefaultPrimary {
@@ -806,6 +877,11 @@ declare module "@prismicio/client" {
       BannerSliceDefault,
       BannerSliceReverse,
       BannerSliceOptionList,
+      BrandsListSlice,
+      BrandsListSliceDefaultPrimary,
+      BrandsListSliceDefaultItem,
+      BrandsListSliceVariation,
+      BrandsListSliceDefault,
       DisClouserSlice,
       DisClouserSliceDefaultPrimary,
       DisClouserSliceDefaultItem,

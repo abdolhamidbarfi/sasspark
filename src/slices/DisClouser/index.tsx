@@ -36,7 +36,7 @@ const DisClouser = ({ slice }: DisClouserProps): JSX.Element => {
                     newListOfDisclouser.map((item => (
                         <div>
                             {
-                                item.map((item) => <Disclouser data={{title: item.title , description: item.description}} />)
+                                item.map((item , index) => <Disclouser key={index} data={{title: item.title , description: item.description}} />)
                             }
                         </div>
                     )))

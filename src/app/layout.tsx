@@ -4,7 +4,6 @@ import './globals.css'
 import { createClient } from '@/prismicio'
 import Navigation from '@/components/navigation'
 import Footer from '@/components/Footer'
-import Disclouser from '@/components/Disclouser'
 
 const vazirmatn = Vazirmatn({ subsets: ['latin'], variable: "--font-vazirmatn", display: "swap" })
 

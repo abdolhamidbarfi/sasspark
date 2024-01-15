@@ -1,5 +1,4 @@
 import { components } from "@/components/tools/typography";
-import { Disclosure } from "@headlessui/react";
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
