@@ -1,6 +1,6 @@
 
 // Button Component and Styles
-const buttonStyle = "max-sm:!w-full text-center px-10 py-5 bg-gray-800 text-white rounded-md font-medium inline-block transition-all duration-1000"
+const buttonStyle = "max-sm:w-full text-center px-5 py-3 bg-gray-700 text-white rounded-md font-medium inline-block transition-all duration-1000 hover:bg-gray-900"
 
 interface IButtonProps {
     children: React.ReactElement | string

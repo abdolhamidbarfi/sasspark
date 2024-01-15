@@ -63,6 +63,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "huge",
 				"type": "Text"
+			},
+			"link": {
+				"__TYPE__": "FieldContent",
+				"value": "aside",
+				"type": "Text"
 			}
 		},
 		"items": []

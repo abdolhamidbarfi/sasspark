@@ -316,6 +316,16 @@ export interface BannerSliceDefaultPrimary {
   description: prismic.RichTextField;
 
   /**
+   * link field in *Banner → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: banner.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link: prismic.KeyTextField;
+
+  /**
    * Button field in *Banner → Primary*
    *
    * - **Field Type**: Link

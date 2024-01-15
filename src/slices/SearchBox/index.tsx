@@ -28,8 +28,8 @@ const SearchBox = ({ slice }: SearchBoxProps): JSX.Element => {
                     <PrismicRichText field={slice.primary.description} components={components} />
                     <form action="#" >
                         <div className="xl:w-3/4 bg-white shadow rounded-md h-max p-1 flex justify-between gap-1 ">
-                            <input type="email" className="bg-white outline-none px-2" placeholder="ایمیل خود را وارد کنید ..." />
-                            <Button extendStyles="!py-3 !w-15">ثبت نام</Button>
+                            <input type="email" className="w-1 bg-white outline-none px-2" placeholder="ایمیل خود را وارد کنید ..." />
+                            <Button extendStyles="!py-3 !w-[8rem] px-0">ثبت نام</Button>
                         </div>
                     </form>
                 </div>

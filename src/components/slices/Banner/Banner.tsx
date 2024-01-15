@@ -6,9 +6,9 @@ import { BannerSliceDefaultPrimary, BannerSliceOptionListItem, BannerSliceOption
 import { buttonStyle } from '@/components/tools/Button';
 
 interface ISliceBannerProps {
-   items: never[] | Simplify<BannerSliceOptionListItem>[]
-   primary: Simplify<BannerSliceDefaultPrimary > | Simplify<BannerSliceOptionListPrimary> | Simplify<BannerSliceReversePrimary>
-   variation: "default" | "reverse" | "optionList"
+    items: never[] | Simplify<BannerSliceOptionListItem>[]
+    primary: Simplify<BannerSliceDefaultPrimary> | Simplify<BannerSliceOptionListPrimary> | Simplify<BannerSliceReversePrimary>
+    variation: "default" | "reverse" | "optionList"
 }
 
 const SliceBanner: React.FunctionComponent<ISliceBannerProps> = ({
@@ -23,10 +23,10 @@ const SliceBanner: React.FunctionComponent<ISliceBannerProps> = ({
                 <PrismicNextImage className="object-scale-down" field={primary?.image} />
             </div>
             {/* second section */}
-            <div className="basis-3/6 my-10">
+            <div className="basis-3/6 m-10">
                 {
                     (variation === "default")
-                    && <p className="font-medium text-green-400 bg-green-50 px-5 py-2 rounded-full border-green-400 mb-5 inline-block">
+                    && <p className="font-medium text-green-400 bg-green-50 mx-5 py-2 rounded-full border-green-400 mb-5 inline-block">
                         {primary?.talk_about}
                     </p>
                 }
@@ -34,9 +34,11 @@ const SliceBanner: React.FunctionComponent<ISliceBannerProps> = ({
                 <PrismicRichText field={primary.description} components={components} />
                 {
                     (variation === "default" || variation === "reverse")
-                    && <PrismicNextLink field={primary?.button} className={buttonStyle} >
-                        {primary?.link}
-                    </PrismicNextLink>
+                    &&
+                        <PrismicNextLink field={primary?.button} className={buttonStyle} >
+                            {primary?.link}
+                        </PrismicNextLink>
+
                 }
                 {
                     (variation === "optionList") &&

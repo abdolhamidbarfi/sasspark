@@ -45,6 +45,13 @@
             "single": "paragraph"
           }
         },
+        "link": {
+          "type": "Text",
+          "config": {
+            "label": "link",
+            "placeholder": ""
+          }
+        },
         "button": {
           "type": "Link",
           "config": {
