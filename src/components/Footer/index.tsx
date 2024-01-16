@@ -6,6 +6,7 @@ import { FooterSectionSlice } from '../../../prismicio-types';
 import { PrismicRichText } from '@prismicio/react';
 import Link from 'next/link';
 
+
 interface IFooterProps {
     listItem: SliceZone<FooterSectionSlice>
 }

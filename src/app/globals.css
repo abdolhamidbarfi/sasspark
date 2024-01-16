@@ -2,21 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
-.demo-container {
-    position: relative;
-    border: 2px solid ;
-    border-radius: 1em;
-    padding: 2rem ;
+.blog-content p {
+    font-size: 1.1rem;
+    line-height: 2rem;
+}
+
+.blog-content a {
+    font-size: 1.2rem;
+    padding: 0.1rem 0;
+    display: inline-block;
+    transition: 100ms;
+    color: rgba(34, 112, 147, 1.0)
+}
+
+.blog-content a:hover {
+    color: rgba(34, 112, 147, 0.7);
+}
+
+.blog-content strong , .blog-content bold {
+    font-weight: bold;
+}
+
+.blog-content h1 {
+    transition: 1s;
+    font-weight: 700;
+    margin-bottom: 2rem !important;
 
 }
 
-.grid-collapse__wrapper {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.5s ease-out;
+.blog-content h2 {
+    transition: 1s;
+    font-weight: 500;
+    margin: 1rem 0 0.7rem !important;
+    font-size: 1.8rem;
 }
 
+.blog-content h3 {
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin: 0.5rem 0 0 !important;
 
-.grid-collapse__wrapper.is-open {
-    grid-template-rows: 1fr !important;
+}
+
+@media not all and (min-width: 450px) {
+    .blog-content h1 {
+        font-size: 2rem;
+        line-height: 2.5rem !important;
+    }
+    .blog-content h2 {
+        font-size: 1.6rem;
+        line-height: 2rem !important;
+    }
+}
+@media not all and (max-width: 768px) {
+    .blog-content h1 {
+        font-size: 2rem;
+        line-height: 2.5rem !important;
+    }
+    .blog-content h2 {
+        font-size: 1.5rem;
+        line-height: 2.5rem !important;
+    }
+}
+@media not all and (min-width: 768px) {
+    .blog-content h1 {
+        font-size: 2.25rem;
+        line-height: 2.5rem !important;
+    }
+    .blog-content h2 {
+        font-size: 1.8rem;
+        line-height: 2.5rem !important;
+    }
+}
+@media not all and (max-width: 1024px) {
+    .blog-content h1 {
+        font-size: 2.5rem;
+        line-height: 3rem !important;
+    }
+    .blog-content h1 {
+        font-size: 1.9rem;
+        line-height: 2.5rem !important;
+    }
+}
+
+@media (min-width: 1024px) {
+    .blog-content h1 {
+        font-size: 3rem !important;
+        line-height: 3.5rem !important;
+    }
+    .blog-content h2 {
+        font-size: 2rem !important;
+        line-height: 3rem !important;
+    }
 }
