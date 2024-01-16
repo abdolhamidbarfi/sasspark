@@ -21,7 +21,6 @@ export default async function RootLayout({
     const { data: navigationData } = await client.getSingle("nav_items")
     const {data: footerData} = await client.getSingle("footer")
 
-
     return (
         <html lang="en" dir='rtl'>
             <body className={`${vazirmatn.className} bg-gray-50`}>

@@ -4,6 +4,7 @@ import { PrismicRichText } from '@prismicio/react';
 import * as React from 'react';
 import { BannerSliceDefaultPrimary, BannerSliceOptionListItem, BannerSliceOptionListPrimary, BannerSliceReversePrimary, Simplify } from '../../../../prismicio-types';
 import { buttonStyle } from '@/components/tools/Button';
+import { LinkField } from '@prismicio/client';
 
 interface ISliceBannerProps {
     items: never[] | Simplify<BannerSliceOptionListItem>[]

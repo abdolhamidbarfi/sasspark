@@ -6,6 +6,7 @@ import { Bars3Icon
  } from '@heroicons/react/16/solid';
 import { GroupField } from '@prismicio/client';
 import { NavItemsDocumentDataItemItem, Simplify } from '../../../prismicio-types';
+import { PrismicNextLink } from '@prismicio/next';
 
 interface INavigationProps {
     items: GroupField<Simplify<NavItemsDocumentDataItemItem>>
@@ -39,8 +40,9 @@ const Navigation: React.FunctionComponent<INavigationProps> = ({ items }) => {
                     <ul className='flex max-sm:flex-col items-center justify-center '>
                         {items.map((item: any, index) => (
                             <li key={index} className='p-5 lg:text-xl lg:font-medium hover:opacity-70' onClick={handleOpenMenu}>
-                                <Link href={item.link.url}>{item.item}</Link>
+                                <PrismicNextLink field={item.link}>{item.item}</PrismicNextLink>
                             </li>
+
                         )
                         )}
                     </ul>
