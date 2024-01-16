@@ -8,7 +8,7 @@ import { LinkField } from '@prismicio/client';
 
 interface ISliceBannerProps {
     items: never[] | Simplify<BannerSliceOptionListItem>[]
-    primary: Simplify<BannerSliceDefaultPrimary> | Simplify<BannerSliceOptionListPrimary> | Simplify<BannerSliceReversePrimary>
+    primary:  any
     variation: "default" | "reverse" | "optionList"
 }
 
@@ -44,7 +44,7 @@ const SliceBanner: React.FunctionComponent<ISliceBannerProps> = ({
                 {
                     (variation === "optionList") &&
                     <ul>
-                        {items?.map(item => <li className=" text-xl flex items-center my-5 font-medium">
+                        {items?.map((item , index)=> <li key={index} className=" text-xl flex items-center my-5 font-medium">
                             <span className="after:rotate-45 ml-3 after:border-b-[3px] after:border-r-[3px] after:border-b-green-400 after:border-r-green-400 after:w-2 after:h-4 after:inline-block w-7 h-7 border-green-400 border-[3px] inline-block rounded-full relative after:absolute after:right-[7px] after:top-[2px]"></span>
                             {item?.option}
                         </li>

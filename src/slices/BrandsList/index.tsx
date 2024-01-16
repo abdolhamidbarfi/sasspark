@@ -21,7 +21,7 @@ const BrandsList = ({ slice, index }: BrandsListProps): JSX.Element => {
             <div className='container transition-all duration-1000 mx-auto my-10 border-b-gray-100 border-b-2 px-5'>
                 <span className='text-gray-400 font-bold'>{slice.primary.title}</span>
                 <div className='transition-all duration-1000 flex-wrap flex mx-auto justify-between  w-full'>
-                    {slice.items.map(item => <PrismicNextImage className='basis-1/5 px-5 object-scale-down' field={item.logo} alt={item.title as ""} />)}
+                    {slice.items.map((item , index) => <PrismicNextImage key={index} className='basis-1/5 px-5 object-scale-down' field={item.logo} alt={item.title as ""} />)}
                 </div>
             </div>
         </section>
