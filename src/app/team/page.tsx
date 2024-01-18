@@ -1,4 +1,5 @@
 
+import Developing from '@/components/Developing';
 import { createClient } from '@/prismicio';
 import { components } from '@/slices';
 import { PrismicRichText, SliceZone } from '@prismicio/react';
@@ -15,7 +16,9 @@ async function TeamPage(params : ITeamPageProps) {
     return (
         <>
             {/* <PrismicRichText field={data.title} /> */}
+            <Developing title='صفحه اعضای تیم'/>
             <SliceZone slices={page.slices} components={components} />
+
         </>
     )
 };

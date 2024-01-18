@@ -1,4 +1,5 @@
 
+import Developing from '@/components/Developing';
 import { createClient } from '@/prismicio';
 import { components } from '@/slices';
 import { SliceZone } from '@prismicio/react';
@@ -13,7 +14,7 @@ async function AboutUsPage(params : IAboutUsPageProps) {
 
     return (
         <>
-            <h1>About Us Page</h1>
+            <Developing title='صفحه درباره‌ی ما'/>
             <SliceZone slices={page.slices} components={components} />
         </>
     )

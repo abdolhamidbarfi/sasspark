@@ -34,7 +34,7 @@ const DisClouser = ({ slice , index }: DisClouserProps): JSX.Element => {
             <div className="grid max-md:grid-cols-1 md:grid-cols-2">
                 {
                     newListOfDisclouser.map(((item, index) => (
-                        <div key={index}>
+                        <div key={index} className="flex flex-col">
                             {
                                 item.map((item , index) => <Disclouser key={index} data={{title: item.title , description: item.description}} />)
                             }

@@ -1,4 +1,5 @@
 
+import Developing from '@/components/Developing';
 import { createClient } from '@/prismicio';
 import { components } from '@/slices';
 import { SliceZone } from '@prismicio/react';
@@ -13,7 +14,7 @@ async function ContactUsPage(params : IContactUsPageProps) {
 
     return (
         <>
-            <h1>Contact Us Page</h1>
+            <Developing title='صفحه‌ی تماس با ما'/>
             <SliceZone slices={page.slices} components={components} />
         </>
     )
