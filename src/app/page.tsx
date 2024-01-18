@@ -1,3 +1,4 @@
+import PaginatedItems from '@/components/pagination'
 import { createClient } from '@/prismicio'
 import { components } from '@/slices'
 

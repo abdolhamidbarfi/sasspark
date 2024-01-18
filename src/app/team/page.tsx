@@ -10,7 +10,6 @@ interface ITeamPageProps {
 async function TeamPage(params : ITeamPageProps) {
     const client = createClient()
     const { data: page } = await client.getSingle("teampage")
-    console.log(page);
 
 
     return (

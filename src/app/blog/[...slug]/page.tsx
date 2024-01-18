@@ -1,11 +1,10 @@
 import getSinglePost from "@/components/helper/getSinglePost";
-import { stylesComponets } from "@/components/tools/typography";
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
     const data = await getSinglePost({id : params.slug[0]})
 
-    const list = Array(10).fill("1")
+
 
     return (
         <div className="blog-content">
