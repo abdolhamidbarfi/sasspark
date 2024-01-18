@@ -66,12 +66,11 @@ async function BlogPage(props: IBlogPageProps) {
 
 export default BlogPage;
 
-export async function generateMetadata(parent: ResolvingMetadata): Promise<Metadata> {
-    // console.log(await parent);
+export async function generateMetadata(): Promise<Metadata> {
+
     return (
         {
             title: "sasspark | بلاگ",
-            // description: data.content.rendered.substring(0, 120)
         }
     )
 }

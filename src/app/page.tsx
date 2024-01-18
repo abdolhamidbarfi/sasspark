@@ -16,12 +16,10 @@ export default async function Home() {
         </>
     )
 }
-export async function generateMetadata(parent: ResolvingMetadata): Promise<Metadata> {
-    // console.log(await parent);
+export async function generateMetadata(): Promise<Metadata> {
     return (
         {
             title: "sasspark | وبسایت آموزشی خبری ساس پارک",
-            // description: data.content.rendered.substring(0, 120)
         }
     )
 }

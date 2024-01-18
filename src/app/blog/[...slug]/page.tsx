@@ -25,7 +25,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
     )
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }, parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
     const data = await getSinglePost({ id: params.slug[0] })
 
     // console.log(await parent);
