@@ -1,10 +1,11 @@
 import getSinglePost from "@/components/helper/getSinglePost";
+import { Metadata, ResolvingMetadata } from "next";
+
+
 
 export default async function Page({ params }: { params: { slug: string } }) {
 
-    const data = await getSinglePost({id : params.slug[0]})
-
-
+    const data = await getSinglePost({ id: params.slug[0] })
 
     return (
         <div className="blog-content">
@@ -21,5 +22,18 @@ export default async function Page({ params }: { params: { slug: string } }) {
                 </section>
             </div>
         </div>
+    )
+}
+
+export async function generateMetadata({ params }: { params: { slug: string } }, parent: ResolvingMetadata): Promise<Metadata> {
+    const data = await getSinglePost({ id: params.slug[0] })
+
+    // console.log(await parent);
+
+    return (
+        {
+            title: data.title.rendered,
+            description: data.content.rendered.substring(0, 120)
+        }
     )
 }

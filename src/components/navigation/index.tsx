@@ -23,7 +23,7 @@ const Navigation: React.FunctionComponent<INavigationProps> = ({ items }) => {
     }
 
     return (
-        <header className='lg:h-24 max-lg:h-14 shadow transition-all duration-1000' >
+        <header className='lg:h-24 max-lg:h-14 shadow transition-all duration-1000 !w-full' >
          <div onClick={handleOpenMenu} className={`transition-all duration-1000 bg-gray-600 absolute top-0 bottom-0 right-0 left-0 opacity-50 hidden ${showMenu && "max-sm:!block"}`}></div>
             <div className='container flex flex-row-reverse justify-between items-center h-full mx-auto  relative' >
                 {/* Logo Section */}

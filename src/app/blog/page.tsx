@@ -5,15 +5,12 @@ import { createClient } from '@/prismicio';
 import { components } from '@/slices';
 import { SliceZone } from '@prismicio/react';
 import Link from 'next/link';
-import * as React from 'react';
-import { headers } from 'next/headers'
-import PaginatedItems from '@/components/pagination';
-import PostsList from '@/components/pagination/PostsList';
 import Pagination from '@/components/pagination';
+import { Metadata, ResolvingMetadata } from 'next';
 
 interface IBlogPageProps {
-    params : {}
-     searchParams  : { page : string}
+    params: {}
+    searchParams: { page: string }
 }
 
 interface IPostsType {
@@ -29,11 +26,11 @@ interface IPostsType {
 async function BlogPage(props: IBlogPageProps) {
     const client = createClient()
     const { data: page } = await client.getSingle("blog_page")
-    const data = await getPosts({ page: props?.searchParams?.page , per_page: 12 })
+    const data = await getPosts({ page: props?.searchParams?.page, per_page: 12 })
 
 
     return (
-        <div className='my-10'>
+        <div >
             <SliceZone slices={page.slices} components={components} />
             {/* <div>{referer}</div> */}
             <section className='grid grid-cols-6 gap-5 container transition-all duration-1000 mx-auto p-5'>
@@ -56,11 +53,11 @@ async function BlogPage(props: IBlogPageProps) {
                 }
             </section>
             <div className='text-center'>
-            <Pagination
-                pageRangeDisplayed={3}
-                marginPagesDisplayed={2}
-                pageCount={data.total_page as string}
-                page={props?.searchParams?.page} />
+                <Pagination
+                    pageRangeDisplayed={2}
+                    marginPagesDisplayed={1}
+                    pageCount={data.total_page as string}
+                    page={props?.searchParams?.page} />
             </div>
 
         </div>
@@ -68,3 +65,13 @@ async function BlogPage(props: IBlogPageProps) {
 };
 
 export default BlogPage;
+
+export async function generateMetadata(parent: ResolvingMetadata): Promise<Metadata> {
+    // console.log(await parent);
+    return (
+        {
+            title: "sasspark | بلاگ",
+            // description: data.content.rendered.substring(0, 120)
+        }
+    )
+}

@@ -8,7 +8,7 @@ import { LinkField } from '@prismicio/client';
 
 interface ISliceBannerProps {
     items: never[] | Simplify<BannerSliceOptionListItem>[]
-    primary:  any
+    primary: any
     variation: "default" | "reverse" | "optionList"
 }
 
@@ -36,17 +36,17 @@ const SliceBanner: React.FunctionComponent<ISliceBannerProps> = ({
                 {
                     (variation === "default" || variation === "reverse")
                     &&
-                        <PrismicNextLink field={primary?.button} className={buttonStyle} >
-                            {primary?.link}
-                        </PrismicNextLink>
+                    <PrismicNextLink field={primary?.button} className={buttonStyle} >
+                        {primary?.link}
+                    </PrismicNextLink>
 
                 }
                 {
                     (variation === "optionList") &&
-                    <ul>
-                        {items?.map((item , index)=> <li key={index} className=" text-xl flex items-center my-5 font-medium">
-                            <span className="after:rotate-45 ml-3 after:border-b-[3px] after:border-r-[3px] after:border-b-green-400 after:border-r-green-400 after:w-2 after:h-4 after:inline-block w-7 h-7 border-green-400 border-[3px] inline-block rounded-full relative after:absolute after:right-[7px] after:top-[2px]"></span>
-                            {item?.option}
+                    <ul >
+                        {items?.map((item, index) => <li key={index} className=" sm:text-xl max-sm:text-lg flex md:my-5 font-medium">
+                            <div><span className="after:rotate-45 ml-3 after:border-b-[3px] after:border-r-[3px] after:border-b-green-400 after:border-r-green-400 after:w-2 after:h-4 after:inline-block w-[28px] h-[28px]  border-green-400 border-[3px] inline-block rounded-full relative after:absolute after:right-[7px] after:top-[2px]"></span></div>
+                                {item?.option}
                         </li>
                         )}
                     </ul>
